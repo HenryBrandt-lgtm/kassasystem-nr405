@@ -4,12 +4,9 @@ using System.IO;
 namespace kassasystem
 {
     internal class Receipt
-    {
-        
-        
+    {               
         private static int ReceiptNumber = 0;
         public string Date { get; set; }
-
         
         public Receipt()
         {

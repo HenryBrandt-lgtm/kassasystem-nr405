@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace kassasystem
 {
@@ -9,7 +8,7 @@ namespace kassasystem
     {
         public void NewTransaction()
         {
-            
+            string productID = "";
             List<ShoppingBasket> basket = new List<ShoppingBasket>();
             decimal amountBought = 0;
             var shopping = true;
@@ -30,46 +29,45 @@ namespace kassasystem
 
                 Console.WriteLine("Insert product ID followed by amount. (300 1)");
                 Console.WriteLine("Tryck Enter för att betala");
-                
-                Console.Write("Product: "); 
+
+                Console.Write("Product: ");
                 string userInput = Console.ReadLine();
                 if (userInput == "")
                 {
                     shopping = false;
                     continue;
                 }
-                else if (userInput.Contains(" "))
+                try
                 {
                     var amountAndID = userInput.Split(' ');
-                    var productID = amountAndID[0];
+                    productID = amountAndID[0];
                     amountBought = Convert.ToDecimal(amountAndID[1]);
+                   
 
-                    string filePath = "../../Products/ProductList.csv";
-                    if (File.Exists(filePath))
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("You must use the format \"300 1\" \nPress Space to try again");
+                    Console.ReadKey();
+                }
+                string filePath = "../../Products/ProductList.csv";
+                if (File.Exists(filePath) && amountBought > 0)
+                {
+                    string[] products = File.ReadAllLines(filePath);
+                    foreach (string product in products)
                     {
-                        string[] products = File.ReadAllLines(filePath);
-                        foreach (string product in products)
+                        var parts = product.Split(';');
+                        if (parts[0] == productID)
                         {
-                            var parts = product.Split(';');
-                            if (parts[0] == productID)
+                            basket.Add(new ShoppingBasket
                             {
-                                basket.Add(new ShoppingBasket
-                                {
-                                    Name = parts[1],
-                                    Description = parts[2],
-                                    Price = decimal.Parse(parts[3]),
-                                    Quantity = amountBought
-                                });
-                            }
+                                Name = parts[1],
+                                Description = parts[2],
+                                Price = decimal.Parse(parts[3]),
+                                Quantity = amountBought
+                            });
                         }
                     }
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"you must use the format \"300 1\" \nPress Space to try again");
-                    Console.ResetColor();
-                    Console.ReadKey();
                 }
 
                 Console.Clear();
