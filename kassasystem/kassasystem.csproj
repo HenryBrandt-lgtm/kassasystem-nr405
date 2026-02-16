@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Products\CreateProductList.cs" />
     <Compile Include="Products\AddNewProducts.cs" />
     <Compile Include="Menus\ProductMenu.cs" />
     <Compile Include="Products\RemoveProducts.cs" />
@@ -58,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Products\ProductList.csv" />
     <None Include="Shopping\Receipts.csv" />
   </ItemGroup>
   <ItemGroup />

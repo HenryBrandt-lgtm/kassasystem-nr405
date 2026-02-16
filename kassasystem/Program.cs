@@ -4,9 +4,8 @@
     {
         static void Main(string[] args)
         {
+            CreateProductList.CeckProductList();
             ShowMenu.ShowMainMenu();
-
-            //starta med att skapa mappen med förvalda produkter
         }
     }
 }

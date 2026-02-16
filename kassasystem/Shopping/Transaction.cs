@@ -33,33 +33,43 @@ namespace kassasystem
                 
                 Console.Write("Product: "); 
                 string userInput = Console.ReadLine();
-                if (userInput == "" ) 
+                if (userInput == "")
                 {
                     shopping = false;
                     continue;
                 }
-                var amountAndID = userInput.Split(' ');
-                var productID = amountAndID[0];
-                amountBought = Convert.ToDecimal(amountAndID[1]);
-
-                string filePath = "../../Products/ProductList.csv";
-                if (File.Exists(filePath))
+                else if (userInput.Contains(" "))
                 {
-                    string[] products = File.ReadAllLines(filePath);
-                    foreach (string product in products)
+                    var amountAndID = userInput.Split(' ');
+                    var productID = amountAndID[0];
+                    amountBought = Convert.ToDecimal(amountAndID[1]);
+
+                    string filePath = "../../Products/ProductList.csv";
+                    if (File.Exists(filePath))
                     {
-                        var parts = product.Split(';');
-                        if (parts[0] == productID)
+                        string[] products = File.ReadAllLines(filePath);
+                        foreach (string product in products)
                         {
-                            basket.Add(new ShoppingBasket
+                            var parts = product.Split(';');
+                            if (parts[0] == productID)
                             {
-                                Name = parts[1],
-                                Description = parts[2],
-                                Price = decimal.Parse(parts[3]),
-                                Quantity = amountBought
-                            });
-                        }                       
+                                basket.Add(new ShoppingBasket
+                                {
+                                    Name = parts[1],
+                                    Description = parts[2],
+                                    Price = decimal.Parse(parts[3]),
+                                    Quantity = amountBought
+                                });
+                            }
+                        }
                     }
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"you must use the format \"300 1\" \nPress Space to try again");
+                    Console.ResetColor();
+                    Console.ReadKey();
                 }
 
                 Console.Clear();

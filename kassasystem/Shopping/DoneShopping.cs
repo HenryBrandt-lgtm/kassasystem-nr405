@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace kassasystem
 {
@@ -24,10 +23,12 @@ namespace kassasystem
 
             Console.WriteLine("------------------");
             Console.WriteLine($"TOTAL: {grandTotal}");
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press anykey to return to main menu.");
             Console.ReadKey();
+            Console.Clear();
 
             receipt.AddReceiptEnd(grandTotal);
+
             ShowMenu.ShowMainMenu();
         }
     }
