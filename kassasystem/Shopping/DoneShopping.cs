@@ -23,6 +23,7 @@ namespace kassasystem
 
             Console.WriteLine("------------------");
             Console.WriteLine($"TOTAL: {grandTotal}");
+            Console.WriteLine($"\nMoms: 12%\t{(float)grandTotal * 0.12}");
             Console.WriteLine("Press anykey to return to main menu.");
             Console.ReadKey();
             Console.Clear();

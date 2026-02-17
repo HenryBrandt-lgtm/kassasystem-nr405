@@ -42,6 +42,7 @@ namespace kassasystem
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine($"\nTotal: {grandTotal}");
+                writer.WriteLine($"\nMoms: 12%\t{(float)grandTotal * 0.12}");
                 writer.WriteLine("------------------------------");
             }
         }
