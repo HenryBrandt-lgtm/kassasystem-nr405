@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace kassasystem.Products
 {
-    internal class ChangeProducts
+    internal class UpdateProducts
     {
         public void ChangeProduct()
         {
@@ -56,20 +56,26 @@ namespace kassasystem.Products
                 switch (partToChange)
                 {
                     case "1":
-                        Console.WriteLine("Type the new name");
+                        Console.Clear ();
+                        Console.Write($"Current name is {productParts[1]}. Please type the new name: ");
                         var newProductName = Console.ReadLine();
                         productParts[1] = newProductName;
                         break;
                     case "2":
-                        Console.WriteLine("Type the new price type");
+                        Console.Clear();
+                        Console.Write($"{productParts[1]} current price type is {productParts[2]}. Please type the new price type: ");
                         var newProductPriceType = Console.ReadLine();
                         productParts[2] = newProductPriceType;
                         break;
                     case "3":
-                        Console.WriteLine("Type the new price");
+                        Console.Clear();
+                        Console.Write($"{productParts[1]} current price is {productParts[3]}kr. Please type the new price: ");
                         if (!decimal.TryParse(Console.ReadLine(), out decimal newProductPrice))
                         {
                             Console.WriteLine("Invalid price!");
+                            Console.WriteLine("Press space to try again");
+                            Console.ReadKey();
+                            Console.Clear();
                             continue;
                         }
                         productParts[3] = newProductPrice.ToString();

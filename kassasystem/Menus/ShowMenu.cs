@@ -22,7 +22,7 @@ namespace kassasystem
 
                 Console.WriteLine($"   Welcome to the Brandts frukt och \u001b[32mgrönt!\u001b[0m\n");
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}\u001b[0mStart New Transaction");
-                Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0mView and add/remove/change products");
+                Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0mView and add/remove/update products");
                 Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}\u001b[0mView and change campaigns");
                 Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}\u001b[0mExit");
 

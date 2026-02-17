@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Products\ChangeProducts.cs" />
-    <Compile Include="Products\CreateProductList.cs" />
+    <Compile Include="Products\UpdateProducts.cs" />
+    <Compile Include="BluePrints\CreateProductList.cs" />
     <Compile Include="Products\AddNewProducts.cs" />
     <Compile Include="Menus\ProductMenu.cs" />
     <Compile Include="Products\RemoveProducts.cs" />

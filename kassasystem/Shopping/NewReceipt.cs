@@ -61,7 +61,7 @@ namespace kassasystem
 
             foreach (var line in receiptArray.Reverse())
             {
-                if (line.StartsWith("Kvitto: Nr."))
+                if (line.StartsWith("Kvitto: Nr.")) 
                 {
                     string numberPart = line.Replace("Kvitto: Nr.", "").Trim();
                     if (int.TryParse(numberPart, out int lastReceiptNumber))

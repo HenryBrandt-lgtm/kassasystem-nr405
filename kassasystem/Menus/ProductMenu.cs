@@ -24,7 +24,7 @@ namespace kassasystem.Products
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}1. \u001b[0mAdd new product");
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}2. \u001b[0mRemove product");
-                Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}3. \u001b[0mChange a product");
+                Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}3. \u001b[0mUpdate a product");
                 Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}4. \u001b[0mGo back to main menu");
 
 
@@ -59,7 +59,7 @@ namespace kassasystem.Products
                     removeProduct.Deleteproduct();
                     break;
                 case 3:
-                    ChangeProducts changeProduct = new ChangeProducts();
+                    UpdateProducts changeProduct = new UpdateProducts();
                     changeProduct.ChangeProduct();
                     break;
                 case 4:
