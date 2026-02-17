@@ -39,10 +39,12 @@ namespace kassasystem
         }
         public void AddReceiptEnd(decimal grandTotal)
         {
+            decimal moms = grandTotal * 0.12m;
+            decimal roundedMoms = Math.Round(moms, 2);
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine($"\nTotal: {grandTotal}");
-                writer.WriteLine($"\nMoms: 12%\t{(float)grandTotal * 0.12}");
+                writer.WriteLine($"\nMoms: 12%\t{roundedMoms}");
                 writer.WriteLine("------------------------------");
             }
         }
@@ -70,7 +72,7 @@ namespace kassasystem
                 }
             }
 
-            ReceiptNumber = 0;
+            
         }
     }
 }
