@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Data.Common;
 using System.Threading;
 
 namespace kassasystem.Products
 {
-    internal class ProductMenu
+    internal static class ProductMenu
     {
-        public void ListOfProductOptions()
+        public static void ListOfProductOptions()
         {
             ShowProductList.ListOfProducts();
 
@@ -26,7 +25,7 @@ namespace kassasystem.Products
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}1. \u001b[0mAdd new product");
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}2. \u001b[0mRemove product");
                 Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}3. \u001b[0mGo back to main menu");
-            
+
 
                 key = Console.ReadKey(true);
 
@@ -69,7 +68,7 @@ namespace kassasystem.Products
                     Console.Clear();
                     ShowMenu.ShowMainMenu();
                     break;
-                
+
             }
         }
     }

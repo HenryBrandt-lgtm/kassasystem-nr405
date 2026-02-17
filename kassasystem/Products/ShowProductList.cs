@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 namespace kassasystem
 {
     internal class ShowProductList
@@ -32,10 +31,10 @@ namespace kassasystem
                         ProductPrice = decimal.Parse(part[3])
                     });
                 }
-                
+
                 foreach (var product in productList)
                 {
-                    Console.WriteLine($"{"", 3}{product.ProductID} {product.ProductName} {product.ProductType} {product.ProductPrice}");
+                    Console.WriteLine($"{"",3}{product.ProductID} {product.ProductName} {product.ProductType} {product.ProductPrice}");
                 }
                 Console.WriteLine();
             }

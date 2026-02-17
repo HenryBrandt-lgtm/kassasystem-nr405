@@ -49,7 +49,7 @@ namespace kassasystem.Products
 
                 File.WriteAllLines(filePath, productList);
 
-
+                //sätta produkterna som inactive istället för raderade?
 
                 Console.WriteLine("\nProduct deleted! Press enter to return to main menu...");
                 Console.ReadLine();

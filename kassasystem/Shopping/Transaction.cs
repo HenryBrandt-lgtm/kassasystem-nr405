@@ -41,9 +41,7 @@ namespace kassasystem
                 {
                     var amountAndID = userInput.Split(' ');
                     productID = amountAndID[0];
-                    amountBought = Convert.ToDecimal(amountAndID[1]);
-                   
-
+                    amountBought = Convert.ToDecimal(amountAndID[1]);                  
                 }
                 catch (Exception ex)
                 {
@@ -51,13 +49,13 @@ namespace kassasystem
                     Console.ReadKey();
                 }
                 string filePath = "../../Products/ProductList.csv";
-                if (File.Exists(filePath) && amountBought > 0)
+                if (File.Exists(filePath) )
                 {
                     string[] products = File.ReadAllLines(filePath);
                     foreach (string product in products)
                     {
                         var parts = product.Split(';');
-                        if (parts[0] == productID)
+                        if (parts[0] == productID && amountBought > 0)
                         {
                             basket.Add(new ShoppingBasket
                             {

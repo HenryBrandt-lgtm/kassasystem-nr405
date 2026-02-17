@@ -8,7 +8,7 @@ namespace kassasystem
     {
         public static void ShowReceipt(List<ShoppingBasket> basket)
         {
-            Receipt receipt = new Receipt();
+            NewReceipt receipt = new NewReceipt();
             decimal grandTotal = 0;
             receipt.AddNewRecipt();
             Console.Clear();
@@ -18,7 +18,7 @@ namespace kassasystem
             {
                 grandTotal += item.Total;
                 Console.WriteLine($"{item.Quantity} {item.Name}  {item.Price}  {item.Total}");
-                receipt.AddProductsToRecipt(item.Quantity, item.Name, item.Price);
+                receipt.AddProductsToReceipt(item.Quantity, item.Name, item.Price);
             }
 
             Console.WriteLine("------------------");

@@ -48,7 +48,7 @@
     <Compile Include="Menus\ProductMenu.cs" />
     <Compile Include="Products\RemoveProducts.cs" />
     <Compile Include="Shopping\DoneShopping.cs" />
-    <Compile Include="Shopping\Receipt.cs" />
+    <Compile Include="Shopping\NewReceipt.cs" />
     <Compile Include="BluePrints\ShoppingBasket.cs" />
     <Compile Include="Menus\ShowMenu.cs" />
     <Compile Include="BluePrints\Product.cs" />
