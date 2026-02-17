@@ -24,7 +24,8 @@ namespace kassasystem.Products
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}1. \u001b[0mAdd new product");
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}2. \u001b[0mRemove product");
-                Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}3. \u001b[0mGo back to main menu");
+                Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}3. \u001b[0mChange a product");
+                Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}4. \u001b[0mGo back to main menu");
 
 
                 key = Console.ReadKey(true);
@@ -32,11 +33,11 @@ namespace kassasystem.Products
                 switch (key.Key)
                 {
                     case ConsoleKey.DownArrow:
-                        option = option == 3 ? 1 : option + 1;
+                        option = option == 4 ? 1 : option + 1;
                         break;
 
                     case ConsoleKey.UpArrow:
-                        option = option == 1 ? 3 : option - 1;
+                        option = option == 1 ? 4 : option - 1;
                         break;
 
                     case ConsoleKey.Enter:
@@ -58,6 +59,10 @@ namespace kassasystem.Products
                     removeProduct.Deleteproduct();
                     break;
                 case 3:
+                    ChangeProducts changeProduct = new ChangeProducts();
+                    changeProduct.ChangeProduct();
+                    break;
+                case 4:
                     Console.Clear();
                     Console.WriteLine("Returning to main menu in:");
                     for (int i = 3; i > 0; i--)
