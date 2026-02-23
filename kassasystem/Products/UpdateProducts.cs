@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace kassasystem.Products
 {
@@ -20,10 +19,8 @@ namespace kassasystem.Products
                     Console.ReadLine();
                     return;
                 }
-                
-                string[] products = File.ReadAllLines(filePath);
-                
 
+                string[] products = File.ReadAllLines(filePath);
 
                 if (products.Length <= 0)
                 {
@@ -52,11 +49,11 @@ namespace kassasystem.Products
                 Console.WriteLine("what part of the product do you want to change?");
                 Console.WriteLine("1. Name\n2. Price Type\n3. Price");
                 var partToChange = Console.ReadLine();
-                List <Product> toTakeInVariables = new List<Product>();
+                List<Product> toTakeInVariables = new List<Product>();
                 switch (partToChange)
                 {
                     case "1":
-                        Console.Clear ();
+                        Console.Clear();
                         Console.Write($"Current name is {productParts[1]}. Please type the new name: ");
                         var newProductName = Console.ReadLine();
                         productParts[1] = newProductName;

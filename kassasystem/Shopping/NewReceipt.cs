@@ -8,9 +8,6 @@ namespace kassasystem
     {               
         private static int ReceiptNumber;
         public string Date { get; set; }
-
-        private static string filePath = "../../Shopping/Receipts.csv";
-
         public NewReceipt()
         {
         }
@@ -20,7 +17,9 @@ namespace kassasystem
             ReceiptNumber++;
 
             DateTime receiptTime = DateTime.Now;
-            Date = receiptTime.ToString("RECEIPT_yyyyMMdd");
+            Date = receiptTime.ToString("yyyyMMdd");
+            string filePath = $"../../Shopping/RECEIPT_{Date}.csv";
+
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine("------------------------------");
@@ -31,36 +30,53 @@ namespace kassasystem
         }
         public void AddProductsToReceipt(decimal quantity, string name, decimal price)
         {
+            DateTime receiptTime = DateTime.Now;
+            Date = receiptTime.ToString("yyyyMMdd");
+            string filePath = $"../../Shopping/RECEIPT_{Date}.csv";
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
-                writer.WriteLine($"{quantity} {name}  {price}     {price * quantity}");
-                
+                writer.WriteLine($"{quantity} {name}  {price}     {price * quantity}");       
             }
         }
         public void AddReceiptEnd(decimal grandTotal)
         {
             decimal moms = grandTotal * 0.12m;
-            decimal roundedMoms = Math.Round(moms, 2);
+            DateTime receiptTime = DateTime.Now;
+            Date = receiptTime.ToString("yyyyMMdd");
+            string filePath = $"../../Shopping/RECEIPT_{Date}.csv";
+
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine($"\nTotal: {grandTotal}");
-                writer.WriteLine($"\nMoms: 12%\t{roundedMoms}");
+                writer.WriteLine($"\nMoms: 12%\t{moms:f2}");
                 writer.WriteLine("------------------------------");
             }
         }
         public static void LoadLastReceiptNumber()
         {
-            
-            if (!File.Exists(filePath))
+            string folderPath = "../../Shopping/";
+
+            if (!Directory.Exists(folderPath)) 
+            {
+                Directory.CreateDirectory(folderPath);
+                ReceiptNumber = 0;
+                return;
+            }
+
+            string[] files = Directory.GetFiles(folderPath, "RECEIPT_*.csv");
+            if (files.Length == 0)
             {
                 ReceiptNumber = 0;
                 return;
             }
 
-            string[] receiptArray = File.ReadAllLines(filePath);
+            string latestFile = files.OrderByDescending(r => r).First();
 
-            foreach (var line in receiptArray.Reverse())
+            string[] receiptArray = File.ReadAllLines(latestFile);
+
+            for (int i = receiptArray.Length - 1; i >= 0; i--)
             {
+                string line = receiptArray[i].Trim();
                 if (line.StartsWith("Kvitto: Nr.")) 
                 {
                     string numberPart = line.Replace("Kvitto: Nr.", "").Trim();
@@ -71,8 +87,7 @@ namespace kassasystem
                     }
                 }
             }
-
-            
+            ReceiptNumber = 0;
         }
     }
 }

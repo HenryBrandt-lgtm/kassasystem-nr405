@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            CreateProductList.CeckProductList();
+            CreateProductList.CheckProductList();
             ShowMenu.ShowMainMenu();
         }
     }

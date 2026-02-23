@@ -4,12 +4,20 @@ namespace kassasystem
 {
     internal class CreateProductList
     {
-        public static void CeckProductList()
+        private static string foldPath = "../../Productsfiles";
+
+        private static string filePath = $"{foldPath}/ProductList.csv";
+        public static void CheckProductList()
         {
-            string filePath = "../../Products/ProductList.csv";
+
+            if (!Directory.Exists(foldPath))
+            {
+                Directory.CreateDirectory(foldPath);
+            }
 
             if (!File.Exists(filePath))
             {
+
                 using (StreamWriter writer = new StreamWriter(filePath, false))
                 {
                     writer.WriteLine("300;Mandariner;kr/st;2,25");

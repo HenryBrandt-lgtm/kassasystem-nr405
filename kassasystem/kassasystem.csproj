@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BluePrints\IProduct.cs" />
     <Compile Include="Products\UpdateProducts.cs" />
     <Compile Include="BluePrints\CreateProductList.cs" />
     <Compile Include="Products\AddNewProducts.cs" />
@@ -60,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Shopping\Receipts.csv" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

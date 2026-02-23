@@ -48,7 +48,7 @@ namespace kassasystem
                     Console.WriteLine("You must use the format \"300 1\" \nPress Space to try again");
                     Console.ReadKey();
                 }
-                string filePath = "../../Products/ProductList.csv";
+                string filePath = "../../Productsfiles/ProductList.csv";
                 if (File.Exists(filePath) )
                 {
                     string[] products = File.ReadAllLines(filePath);

@@ -9,7 +9,7 @@ namespace kassasystem
         public void AddProduct()
         {
             Console.Clear();
-            string filePath = "../../Products/ProductList.csv";
+            string filePath = "../../Productsfiles/ProductList.csv";
             int newID = 300;
             if (!File.Exists(filePath))
             {
