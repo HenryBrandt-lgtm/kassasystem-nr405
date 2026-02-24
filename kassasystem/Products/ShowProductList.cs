@@ -9,7 +9,7 @@ namespace kassasystem
         {
 
             Console.Clear();
-            string filePath = "../../Products/ProductList.csv";
+            string filePath = "../../Productsfiles/ProductList.csv";
             if (File.Exists(filePath))
             {
 

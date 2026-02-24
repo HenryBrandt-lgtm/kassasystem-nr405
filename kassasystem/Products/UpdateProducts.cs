@@ -10,7 +10,7 @@ namespace kassasystem.Products
         public void ChangeProduct()
         {
             Console.Clear();
-            string filePath = "../../Products/ProductList.csv";
+            string filePath = "../../Productsfiles/ProductList.csv";
             while (true)
             {
                 if (!File.Exists(filePath))
@@ -33,7 +33,6 @@ namespace kassasystem.Products
                 for (int i = 0; i < products.Length; i++)
                 {
                     Console.WriteLine($"{i}: {products[i]}".Replace(";", " "));
-
                 }
 
                 Console.Write("\nChoose product to change: ");
@@ -67,7 +66,8 @@ namespace kassasystem.Products
                     case "3":
                         Console.Clear();
                         Console.Write($"{productParts[1]} current price is {productParts[3]}kr. Please type the new price: ");
-                        if (!decimal.TryParse(Console.ReadLine(), out decimal newProductPrice))
+                        if (!decimal.TryParse(Console.ReadLine(), 
+                            out decimal newProductPrice) || newProductPrice <= 0)
                         {
                             Console.WriteLine("Invalid price!");
                             Console.WriteLine("Press space to try again");

@@ -10,7 +10,7 @@ namespace kassasystem.Products
         public void Deleteproduct()
         {
             Console.Clear();
-            string filePath = "../../Products/ProductList.csv";
+            string filePath = "../../Productsfiles/ProductList.csv";
             while (true)
             {
                 if (!File.Exists(filePath))

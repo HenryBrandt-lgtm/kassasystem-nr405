@@ -70,7 +70,7 @@ namespace kassasystem
                 return;
             }
 
-            string latestFile = files.OrderByDescending(r => r).First();
+            string latestFile = files.OrderByDescending(r => r).FirstOrDefault();
 
             string[] receiptArray = File.ReadAllLines(latestFile);
 
