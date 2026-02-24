@@ -37,17 +37,18 @@ namespace kassasystem
                     shopping = false;
                     continue;
                 }
-                try
+                var amountAndID = userInput.Split(' ');
+                if (amountAndID.Length != 2 ||
+                    !decimal.TryParse(amountAndID[1], out amountBought) ||
+                    amountBought <= 0)
                 {
-                    var amountAndID = userInput.Split(' ');
-                    productID = amountAndID[0];
-                    amountBought = Convert.ToDecimal(amountAndID[1]);                  
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("You must use the format \"300 1\" \nPress Space to try again");
+                    Console.WriteLine("You must use the format \"300 1\" and amount must be grater than 0");
                     Console.ReadKey();
+                    continue; 
                 }
+
+                productID = amountAndID[0];
+
                 string filePath = "../../Productsfiles/ProductList.csv";
                 if (File.Exists(filePath) )
                 {
@@ -61,7 +62,7 @@ namespace kassasystem
                             {
                                 Name = parts[1],
                                 Description = parts[2],
-                                Price = decimal.Parse(parts[3]),
+                                Price = decimal.TryParse(parts[3], out var price) ? price : 0,
                                 Quantity = amountBought
                             });
                         }
