@@ -18,7 +18,7 @@ namespace kassasystem
 
             DateTime receiptTime = DateTime.Now;
             Date = receiptTime.ToString("yyyyMMdd");
-            string filePath = $"../../Shopping/RECEIPT_{Date}.csv";
+            string filePath = $"../../Receipts/RECEIPT_{Date}.csv";
 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
@@ -32,7 +32,7 @@ namespace kassasystem
         {
             DateTime receiptTime = DateTime.Now;
             Date = receiptTime.ToString("yyyyMMdd");
-            string filePath = $"../../Shopping/RECEIPT_{Date}.csv";
+            string filePath = $"../../Receipts/RECEIPT_{Date}.csv";
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine($"{quantity} {name}  {price}     {price * quantity}");       
@@ -43,7 +43,7 @@ namespace kassasystem
             decimal moms = grandTotal * 0.12m;
             DateTime receiptTime = DateTime.Now;
             Date = receiptTime.ToString("yyyyMMdd");
-            string filePath = $"../../Shopping/RECEIPT_{Date}.csv";
+            string filePath = $"../../Receipts/RECEIPT_{Date}.csv";
 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
@@ -54,7 +54,7 @@ namespace kassasystem
         }
         public static void LoadLastReceiptNumber()
         {
-            string folderPath = "../../Shopping/";
+            string folderPath = "../../Receipts/";
 
             if (!Directory.Exists(folderPath)) 
             {

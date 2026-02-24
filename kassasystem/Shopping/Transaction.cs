@@ -50,13 +50,13 @@ namespace kassasystem
                 productID = amountAndID[0];
 
                 string filePath = "../../Productsfiles/ProductList.csv";
-                if (File.Exists(filePath) )
+                if (File.Exists(filePath) && amountBought > 0)
                 {
                     string[] products = File.ReadAllLines(filePath);
                     foreach (string product in products)
                     {
                         var parts = product.Split(';');
-                        if (parts[0] == productID && amountBought > 0)
+                        if (parts[0] == productID )
                         {
                             basket.Add(new ShoppingBasket
                             {
