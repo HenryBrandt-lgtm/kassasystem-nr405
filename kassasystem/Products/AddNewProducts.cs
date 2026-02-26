@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Data;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 
 namespace kassasystem
 {
@@ -8,6 +10,7 @@ namespace kassasystem
     {
         public void AddProduct()
         {
+
             Console.Clear();
             string filePath = "../../Productsfiles/ProductList.csv";
             int newID = 300;
@@ -22,7 +25,7 @@ namespace kassasystem
 
             if (lines.Length != 0)
             {
-                int maxID = 0;
+                int maxID = 300;
 
                 foreach (var line in lines)
                 {
@@ -45,11 +48,22 @@ namespace kassasystem
                 var name = Console.ReadLine().Trim();
 
                 Console.Write("\nType the products price: ");
-                decimal price = decimal.Parse(Console.ReadLine().Replace(',', '.'), CultureInfo.InvariantCulture);
+                if (!decimal.TryParse(Console.ReadLine().Replace(',', '.'), out decimal price))
+                {
+                    Console.WriteLine("Unvalid inout of price.");
+                    Console.ReadKey();
+                    continue;
+                }
+                //CultureInfo.InvariantCulture;
 
-                Console.Write("\nType the products price type(kr/kg or kr/st): ");
+                Console.WriteLine("\nType 1 or 2 followed by enter to choose products price type: \n1 kr/kg  \n2 kr/st ");
                 var type = Console.ReadLine().Trim();
-
+                if (type != "1" || type != "2")
+                {
+                    Console.WriteLine("please only choose between 1 or 2");
+                    Console.ReadKey();
+                    continue;
+                }
 
                 Product newProduct = new Product
                 {
@@ -68,6 +82,7 @@ namespace kassasystem
                 Console.WriteLine($"\n{newProduct.ProductName} added with ID: {newID}");
                 Console.ReadKey();
                 addingNewProducts = false;
+
             }
             Console.Clear();
             ShowMenu.ShowMainMenu();

@@ -44,11 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BluePrints\IProduct.cs" />
+    <Compile Include="BluePrints\KeyMenu.cs" />
     <Compile Include="Products\UpdateProducts.cs" />
     <Compile Include="BluePrints\CreateProductList.cs" />
     <Compile Include="Products\AddNewProducts.cs" />
     <Compile Include="Menus\ProductMenu.cs" />
     <Compile Include="Products\RemoveProducts.cs" />
+    <Compile Include="ScrollMenu.cs" />
     <Compile Include="Shopping\DoneShopping.cs" />
     <Compile Include="Shopping\NewReceipt.cs" />
     <Compile Include="BluePrints\ShoppingBasket.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Products\ShowProductList.cs" />
     <Compile Include="Shopping\Transaction.cs" />
+    <Compile Include="TextOutputs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

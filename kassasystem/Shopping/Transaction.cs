@@ -46,7 +46,6 @@ namespace kassasystem
                     Console.ReadKey();
                     continue; 
                 }
-
                 productID = amountAndID[0];
 
                 string filePath = "../../Productsfiles/ProductList.csv";
@@ -68,7 +67,6 @@ namespace kassasystem
                         }
                     }
                 }
-
                 Console.Clear();
             }
             DoneShopping.ShowReceipt(basket);

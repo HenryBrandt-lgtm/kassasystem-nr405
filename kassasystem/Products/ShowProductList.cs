@@ -34,6 +34,7 @@ namespace kassasystem
 
                 foreach (var product in productList)
                 {
+
                     Console.WriteLine($"{"",3}{product.ProductID} {product.ProductName} {product.ProductType} {product.ProductPrice}");
                 }
                 Console.WriteLine();

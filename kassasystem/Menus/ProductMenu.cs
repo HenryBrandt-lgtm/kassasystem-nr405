@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kassasystem.BluePrints;
+using System;
 using System.Threading;
 
 namespace kassasystem.Products
@@ -9,42 +10,15 @@ namespace kassasystem.Products
         {
             ShowProductList.ListOfProducts();
 
-            ConsoleKeyInfo key;
-            int option = 1;
-            bool isSelected = false;
-            string choiceIndicator = "\u001b[32m-> ";
-            int left = Console.CursorLeft;
-            int top = Console.CursorTop;
-            Console.CursorVisible = false;
+            var option1 = "Add new product";
+            var option2 = "Remove product";
+            var option3 = "Update a product";
+            var option4 = "Go back to main menu";
 
-            while (!isSelected)
-            {
-                Console.SetCursorPosition(left, top);
+            KeyMenu optionOf4 = new KeyMenu(option1, option2, option3, option4);
+            ScrollMenu productMenu = new ScrollMenu(optionOf4);
 
-                Console.WriteLine("Choose an option:");
-                Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}1. \u001b[0mAdd new product");
-                Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}2. \u001b[0mRemove product");
-                Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}3. \u001b[0mUpdate a product");
-                Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}4. \u001b[0mGo back to main menu");
-
-
-                key = Console.ReadKey(true);
-
-                switch (key.Key)
-                {
-                    case ConsoleKey.DownArrow:
-                        option = option == 4 ? 1 : option + 1;
-                        break;
-
-                    case ConsoleKey.UpArrow:
-                        option = option == 1 ? 4 : option - 1;
-                        break;
-
-                    case ConsoleKey.Enter:
-                        isSelected = true;
-                        break;
-                }
-            }
+            var option = productMenu.ScrollMenuOptionOf4WithoutExit(optionOf4);
 
             Console.CursorVisible = true;
 
