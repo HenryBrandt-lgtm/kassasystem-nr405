@@ -12,12 +12,7 @@ namespace kassasystem
             Console.Clear();
             string filePath = "../../Productsfiles/ProductList.csv";
             int newID = 300;
-            if (!File.Exists(filePath))
-            {
-                Console.WriteLine("Couldnt find the file.");
-                Console.ReadLine();
-                return;
-            }
+            CreateProductList.CheckProductList();
 
             var lines = File.ReadAllLines(filePath);
 

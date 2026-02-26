@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using kassasystem.BluePrints;
+using System;
+using System.IO;
 
 namespace kassasystem
 {
@@ -30,6 +32,14 @@ namespace kassasystem
                     writer.WriteLine("307;Kastanjer;kr/kg;25");
                 }
 
+            }
+            string[] products = File.ReadAllLines(filePath);
+
+            if (products.Length <= 0)
+            {
+                Console.WriteLine("The productlist is empty.");
+                Console.ReadLine();
+                return;
             }
         }
     }

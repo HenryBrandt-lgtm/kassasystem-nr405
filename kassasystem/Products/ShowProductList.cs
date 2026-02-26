@@ -12,7 +12,7 @@ namespace kassasystem
             string filePath = "../../Productsfiles/ProductList.csv";
             if (File.Exists(filePath))
             {
-
+                CreateProductList.CheckProductList();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n~~~~Brandts frukt och grönt!~~~~\n");
                 Console.ResetColor();
