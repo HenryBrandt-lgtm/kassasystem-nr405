@@ -7,7 +7,7 @@ namespace kassasystem.Products
 {
     internal class RemoveProducts
     {
-        public void Deleteproduct()
+        public void DeleteProduct()
         {
             Console.Clear();
             string filePath = "../../Productsfiles/ProductList.csv";

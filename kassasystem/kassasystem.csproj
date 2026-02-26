@@ -43,8 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BluePrints\Campaign.cs" />
+    <Compile Include="BluePrints\CreateCampaignList.cs" />
     <Compile Include="BluePrints\IProduct.cs" />
     <Compile Include="BluePrints\KeyMenu.cs" />
+    <Compile Include="Campaigns\AddNewCampaign.cs" />
+    <Compile Include="Campaigns\RemoveCampaign.cs" />
+    <Compile Include="Campaigns\ShowCampaigns.cs" />
+    <Compile Include="Menus\CampaignMenu.cs" />
     <Compile Include="Products\UpdateProducts.cs" />
     <Compile Include="BluePrints\CreateProductList.cs" />
     <Compile Include="Products\AddNewProducts.cs" />

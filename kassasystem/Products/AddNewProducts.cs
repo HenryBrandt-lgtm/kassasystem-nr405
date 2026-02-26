@@ -36,8 +36,7 @@ namespace kassasystem
             {
                 ShowProductList.ListOfProducts();
 
-                Console.Write("To add a new product. " +
-                    "\nFirst type the products name: ");
+                Console.Write("To add a new product. \nFirst type the products name: ");
                 var name = Console.ReadLine().Trim();
                 if (name == null)
                     name = "Product";
@@ -78,7 +77,7 @@ namespace kassasystem
                     writer.WriteLine($"{newID};{newProduct.ProductName};{newProduct.ProductType};{newProduct.ProductPrice}");
 
                 }
-                Console.WriteLine($"\n{newProduct.ProductName} added with ID: {newID}");
+                Console.WriteLine($"\n{newProduct.ProductName} added with ID: {newID}\nPlease press space to return to the main menu");
                 Console.ReadKey();
                 addingNewProducts = false;
 

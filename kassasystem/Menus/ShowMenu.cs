@@ -1,4 +1,6 @@
-﻿using kassasystem.Products;
+﻿using kassasystem.Campaigns;
+using kassasystem.Menus;
+using kassasystem.Products;
 using System;
 using System.Threading;
 
@@ -31,7 +33,7 @@ namespace kassasystem
                     ProductMenu.ListOfProductOptions();
                     break;
                 case 3:
-                    // View and change campaigns
+                    CampaignMenu.ListOfCampaignOptions();
                     break;
                 case 4:
                     Console.WriteLine("Terminating...");

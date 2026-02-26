@@ -14,5 +14,6 @@ namespace kassasystem
         {
             ProductID = NextID++;
         }
+        
     }
 }

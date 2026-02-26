@@ -30,7 +30,7 @@ namespace kassasystem.Products
                     break;
                 case 2:
                     RemoveProducts removeProduct = new RemoveProducts();
-                    removeProduct.Deleteproduct();
+                    removeProduct.DeleteProduct();
                     break;
                 case 3:
                     UpdateProducts changeProduct = new UpdateProducts();
