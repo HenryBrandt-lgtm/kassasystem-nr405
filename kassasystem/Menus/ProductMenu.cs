@@ -16,7 +16,7 @@ namespace kassasystem.Products
             var option4 = "Go back to main menu";
 
             KeyMenu optionOf4 = new KeyMenu(option1, option2, option3, option4);
-            ScrollMenu productMenu = new ScrollMenu(optionOf4);
+            ScrollMenu productMenu = new ScrollMenu();
 
             var option = productMenu.ScrollMenuOptionOf4WithoutExit(optionOf4);
 

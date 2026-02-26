@@ -14,7 +14,7 @@ namespace kassasystem
             string option3 = "View and change campaigns";
 
             KeyMenu optionsOf3 = new KeyMenu(option1, option2, option3);
-            ScrollMenu mainMenu = new ScrollMenu(optionsOf3);
+            ScrollMenu mainMenu = new ScrollMenu();
 
             TextOutputs.Header();
             var option = mainMenu.ScrollMenuOptionOf3(optionsOf3);

@@ -44,6 +44,8 @@ namespace kassasystem
                 Console.Write("To add a new product. " +
                     "\nFirst type the products name: ");
                 var name = Console.ReadLine().Trim();
+                if (name == null)
+                    name = "Product";
 
                 Console.Write("\nType the products price: ");
                 if (!decimal.TryParse(Console.ReadLine()?.Replace(',', '.'),
@@ -58,7 +60,7 @@ namespace kassasystem
                 string type = "";
                 Console.WriteLine("\nType 1 or 2 followed by enter to choose products price type:");
                 KeyMenu optionOf2 = new KeyMenu(option1, option2);
-                ScrollMenu productType = new ScrollMenu(optionOf2);
+                ScrollMenu productType = new ScrollMenu();
 
                 var option = productType.ScrollMenuOptionOf2WithoutExit(optionOf2);
                 if (option == 1)

@@ -46,24 +46,31 @@ namespace kassasystem.Products
                 }
                 string[] productParts = products[prodcutOfChoice].Split(';');
                 Console.WriteLine("what part of the product do you want to change?");
-                Console.WriteLine("1. Name\n2. Price Type\n3. Price");
-                var partToChange = Console.ReadLine();
+
+                var option1 = "Name";
+                var option2 = "Price Type";
+                var option3 = "Price";
+                KeyMenu menuOf3 = new KeyMenu(option1, option2, option3);
+                ScrollMenu chooseWhatToChange = new ScrollMenu();
+
+                var partToChange = chooseWhatToChange.ScrollMenuOptionOf3WithoutExit(menuOf3);
+
                 List<Product> toTakeInVariables = new List<Product>();
                 switch (partToChange)
                 {
-                    case "1":
+                    case 1:
                         Console.Clear();
                         Console.Write($"Current name is {productParts[1]}. Please type the new name: ");
                         var newProductName = Console.ReadLine();
                         productParts[1] = newProductName;
                         break;
-                    case "2":
+                    case 2:
                         Console.Clear();
                         Console.Write($"{productParts[1]} current price type is {productParts[2]}. Please type the new price type: ");
                         var newProductPriceType = Console.ReadLine();
                         productParts[2] = newProductPriceType;
                         break;
-                    case "3":
+                    case 3:
                         Console.Clear();
                         Console.Write($"{productParts[1]} current price is {productParts[3]}kr. Please type the new price: ");
                         if (!decimal.TryParse(Console.ReadLine(), 
