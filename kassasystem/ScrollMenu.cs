@@ -19,7 +19,6 @@ namespace kassasystem
             {
                 Console.SetCursorPosition(left, top);
 
-                TextOutputs.Header();
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}\u001b[0m{options.Option1}");
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0m{options.Option2}");
                 Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}\u001b[0m{options.Option3}");
@@ -56,8 +55,6 @@ namespace kassasystem
             while (!isSelected)
             {
                 Console.SetCursorPosition(left, top);
-
-                TextOutputs.Header();
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}\u001b[0m{options.Option1}");
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0m{options.Option2}");
                 Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}\u001b[0m{options.Option3}");
@@ -95,7 +92,6 @@ namespace kassasystem
             {
                 Console.SetCursorPosition(left, top);
 
-                TextOutputs.Header();
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}\u001b[0m{options.Option1}");
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0m{options.Option2}");
                 Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}\u001b[0mExit");
@@ -110,6 +106,41 @@ namespace kassasystem
 
                     case ConsoleKey.UpArrow:
                         option = option == 1 ? 3 : option - 1;
+                        break;
+
+                    case ConsoleKey.Enter:
+                        isSelected = true;
+                        break;
+                }
+            }
+            return option;
+        }
+        public int ScrollMenuOptionOf2WithoutExit(KeyMenu options)
+        {
+            ConsoleKeyInfo key;
+            int option = 1;
+            bool isSelected = false;
+            string choiceIndicator = "\u001b[32m-> ";
+            int left = Console.CursorLeft;
+            int top = Console.CursorTop;
+            Console.CursorVisible = false;
+            while (!isSelected)
+            {
+                Console.SetCursorPosition(left, top);
+
+                Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}\u001b[0m{options.Option1}");
+                Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0m{options.Option2}");
+
+                key = Console.ReadKey(true);
+
+                switch (key.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        option = option == 2 ? 1 : option + 1;
+                        break;
+
+                    case ConsoleKey.UpArrow:
+                        option = option == 1 ? 2 : option - 1;
                         break;
 
                     case ConsoleKey.Enter:

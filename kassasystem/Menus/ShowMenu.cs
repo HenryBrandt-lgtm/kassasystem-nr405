@@ -16,6 +16,7 @@ namespace kassasystem
             KeyMenu optionsOf3 = new KeyMenu(option1, option2, option3);
             ScrollMenu mainMenu = new ScrollMenu(optionsOf3);
 
+            TextOutputs.Header();
             var option = mainMenu.ScrollMenuOptionOf3(optionsOf3);
             Console.CursorVisible = true;
 
