@@ -13,7 +13,7 @@ namespace kassasystem
             
             string option1 = "Start New Transaction";
             string option2 = "View and add/remove/update products";
-            string option3 = "View and change campaigns";
+            string option3 = "View and add/remove campaigns";
 
             KeyMenu optionsOf3 = new KeyMenu(option1, option2, option3);
             ScrollMenu mainMenu = new ScrollMenu();

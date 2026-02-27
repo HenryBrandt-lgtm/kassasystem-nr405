@@ -1,5 +1,6 @@
 ﻿using kassasystem.BluePrints;
 using System;
+using System.Globalization;
 using System.IO;
 
 namespace kassasystem.Campaigns
@@ -47,26 +48,55 @@ namespace kassasystem.Campaigns
                 if (campaignName == null)
                     campaignName = "Campaign";
 
+
                 Console.Write("Enter discount percent: ");
-                if (!decimal.TryParse(Console.ReadLine(), out decimal discount) || discount < 0)
+                if (!decimal.TryParse(Console.ReadLine(), out decimal discount) || discount < 0 || discount > 50)
                 {
-                    Console.WriteLine("Unvallid input. Press space to try again.");
+                    Console.WriteLine("Unvallid input. Only numbers are needed and the discount cant be lowe than 0% " +
+                        "or higher than 50%. Press space to try again.");
                     Console.ReadLine();
                     Console.Clear();
                     continue;
                 }
+                bool settingStartDate = true;
+                DateTime startDate = default;
+                while (settingStartDate)
+                {
+                    Console.Write("Enter start date (yyyy-mm-dd): ");
+                    if (DateTime.TryParseExact(Console.ReadLine(),
+                        "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out startDate))
+                    {
+                        if (startDate < DateTime.Today)
+                            Console.WriteLine("Date cant be older than todays date");
+                        else
+                            settingStartDate = false;
+                    }
+                    else
+                        Console.WriteLine("Invalid input, please use yyyy-MM-dd");
+                    
+                }
+                bool settingEndDate = true;
+                DateTime endDate = default;
+                while (settingEndDate)
+                {
+                    Console.Write("Enter end date (yyyy-MM-dd): ");
+                    if (DateTime.TryParseExact(Console.ReadLine(),
+                        "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out endDate))
+                    {
+                        if (endDate < startDate)
+                            Console.WriteLine("The last date of the campaign cant be before the start.");
 
-                Console.Write("Enter start date (yyyy-mm-dd): ");
-                DateTime startDate = DateTime.Parse(Console.ReadLine());
-
-                Console.Write("Enter end date (yyyy-mm-dd): ");
-                DateTime endDate = DateTime.Parse(Console.ReadLine());
-
+                        else
+                        {
+                            settingEndDate = false;
+                        }
+                    }
+                    else
+                        Console.WriteLine("Invalid input, please use yyyy-MM-dd");
+                }
                 using (StreamWriter writer = new StreamWriter(campaginFilePath, true))
                 {
-
                     writer.WriteLine($"{campaignName};{productParts[0]};{discount};{startDate};{endDate}");
-
                 }
                 Console.WriteLine("\nCampaign added! Press enter to return to main menu...");
                 Console.ReadLine();
