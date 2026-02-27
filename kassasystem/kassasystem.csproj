@@ -50,6 +50,7 @@
     <Compile Include="Campaigns\AddNewCampaign.cs" />
     <Compile Include="Campaigns\RemoveCampaign.cs" />
     <Compile Include="Campaigns\ShowCampaigns.cs" />
+    <Compile Include="Campaigns\UpdateCampaign.cs" />
     <Compile Include="Menus\CampaignMenu.cs" />
     <Compile Include="Products\UpdateProducts.cs" />
     <Compile Include="BluePrints\CreateProductList.cs" />

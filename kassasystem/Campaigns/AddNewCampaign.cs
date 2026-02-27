@@ -85,11 +85,8 @@ namespace kassasystem.Campaigns
                     {
                         if (endDate < startDate)
                             Console.WriteLine("The last date of the campaign cant be before the start.");
-
                         else
-                        {
-                            settingEndDate = false;
-                        }
+                            settingEndDate = false;                       
                     }
                     else
                         Console.WriteLine("Invalid input, please use yyyy-MM-dd");

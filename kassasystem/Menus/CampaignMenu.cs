@@ -13,12 +13,13 @@ namespace kassasystem.Menus
 
             var option1 = "Add new campaign";
             var option2 = "Remove campaign";
-            var option3 = "Go back to main menu";
+            var option3 = "Uppdate campaign";
+            var option4 = "Go back to main menu";
 
-            KeyMenu optionOf3 = new KeyMenu(option1, option2, option3);
+            KeyMenu optionOf4 = new KeyMenu(option1, option2, option3, option4);
             ScrollMenu campaginMenu = new ScrollMenu();
 
-            var option = campaginMenu.ScrollMenuOptionOf3WithoutExit(optionOf3);
+            var option = campaginMenu.ScrollMenuOptionOf4WithoutExit(optionOf4);
 
             Console.CursorVisible = true;
 
@@ -32,7 +33,12 @@ namespace kassasystem.Menus
                     RemoveCampaign removeCampaign = new RemoveCampaign();
                     removeCampaign.DeleteCampaign();
                     break;
+
                 case 3:
+                    UpdateCampaign updateCampaign = new UpdateCampaign();
+                    updateCampaign.ChangeCampaign();
+                    break;
+                case 4:
                     Console.Clear();
                     Console.WriteLine("Returning to main menu in:");
                     for (int i = 3; i > 0; i--)

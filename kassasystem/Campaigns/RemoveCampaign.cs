@@ -33,7 +33,7 @@ namespace kassasystem.Campaigns
                 Console.Write("\nChoose campaign to remove: ");
                 if (!int.TryParse(Console.ReadLine(), out int choice) || choice <= 0 || choice >= campaigns.Length)
                 {
-                    Console.WriteLine("Unvallid input. Press enter to try again.");
+                    Console.WriteLine("Unvallid input. Press space to try again.");
                     Console.ReadLine();
                     Console.Clear();
                     continue;
