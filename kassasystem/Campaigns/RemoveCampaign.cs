@@ -1,10 +1,8 @@
-﻿using System;
+﻿using kassasystem.BluePrints;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using kassasystem.BluePrints;
+using System.Linq;
 namespace kassasystem.Campaigns
 {
     internal class RemoveCampaign
@@ -22,7 +20,7 @@ namespace kassasystem.Campaigns
 
                 if (campaigns.Length <= 1)
                 {
-                    Console.WriteLine("The productlist is empty.");
+                    Console.WriteLine("The campaignlist is empty.");
                     Console.ReadLine();
                     return;
                 }
@@ -32,7 +30,7 @@ namespace kassasystem.Campaigns
                     Console.WriteLine($"{i}: {campaigns[i]}".Replace(";", " "));
                 }
 
-                Console.Write("\nChoose product to remove: ");
+                Console.Write("\nChoose campaign to remove: ");
                 if (!int.TryParse(Console.ReadLine(), out int choice) || choice <= 0 || choice >= campaigns.Length)
                 {
                     Console.WriteLine("Unvallid input. Press enter to try again.");

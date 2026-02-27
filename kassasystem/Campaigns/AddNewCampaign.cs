@@ -44,9 +44,17 @@ namespace kassasystem.Campaigns
 
                 Console.Write("Enter campaign name: ");
                 string campaignName = Console.ReadLine();
+                if (campaignName == null)
+                    campaignName = "Campaign";
 
                 Console.Write("Enter discount percent: ");
-                decimal discount = decimal.Parse(Console.ReadLine());
+                if (!decimal.TryParse(Console.ReadLine(), out decimal discount) || discount < 0)
+                {
+                    Console.WriteLine("Unvallid input. Press space to try again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    continue;
+                }
 
                 Console.Write("Enter start date (yyyy-mm-dd): ");
                 DateTime startDate = DateTime.Parse(Console.ReadLine());
@@ -60,7 +68,7 @@ namespace kassasystem.Campaigns
                     writer.WriteLine($"{campaignName};{productParts[0]};{discount};{startDate};{endDate}");
 
                 }
-                Console.WriteLine("\nCampagin added! Press enter to return to main menu...");
+                Console.WriteLine("\nCampaign added! Press enter to return to main menu...");
                 Console.ReadLine();
                 break;
             }

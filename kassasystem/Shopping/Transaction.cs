@@ -1,6 +1,8 @@
-﻿using System;
+﻿using kassasystem.BluePrints;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace kassasystem
 {
@@ -44,33 +46,70 @@ namespace kassasystem
                 {
                     Console.WriteLine("You must use the format \"300 1\" and amount must be grater than 0");
                     Console.ReadKey();
-                    continue; 
+                    continue;
                 }
                 productID = amountAndID[0];
 
-                string filePath = "../../Productsfiles/ProductList.csv";
-                if (File.Exists(filePath) && amountBought > 0)
+                string campaginFilePath = "../../Campaginfiles/CampaignList.csv";
+
+                string productsFilePath = "../../Productsfiles/ProductList.csv";
+                if (File.Exists(productsFilePath) && amountBought > 0)
                 {
-                    string[] products = File.ReadAllLines(filePath);
+                    string[] campaigns = File.ReadAllLines(productsFilePath);
+                    List<Campaign> campaignList = new List<Campaign>();
+
+                    foreach (var line in campaigns.Skip(1))
+                    {
+                        if (string.IsNullOrWhiteSpace(line))
+                            continue;
+
+                        var parts = line.Split(';');
+
+                        if (parts.Length < 5)
+                            continue;
+
+                        campaignList.Add(new Campaign
+                        {
+                            CampaignName = parts[0],
+                            ProductId = int.Parse(parts[1]),
+                            DiscountPercent = decimal.Parse(parts[2]),
+                            StartDate = DateTime.Parse(parts[3]),
+                            EndDate = DateTime.Parse(parts[4])
+                        });
+                    }
+                    string[] products = File.ReadAllLines(productsFilePath);
                     foreach (string product in products)
                     {
-                        var parts = product.Split(';');
-                        if (parts[0] == productID )
+                        var productParts = product.Split(';');
+
+                        if (productParts[0] == productID)
                         {
-                            basket.Add(new ShoppingBasket
+                            decimal originalPrice = decimal.Parse(productParts[3]);
+                            decimal finalPrice = originalPrice;
+
+                            foreach (var campaign in campaignList.Where(campaign => campaign.ProductId.ToString() == productID 
+                            && campaign.IsActive()))
                             {
-                                Name = parts[1],
-                                Description = parts[2],
-                                Price = decimal.TryParse(parts[3], out var price) ? price : 0,
+                                finalPrice *= (1 - campaign.DiscountPercent / 100);
+                            }
+
+                            basket.Add(new ShoppingBasket
+                            {   
+                                Name = productParts[1],
+                                Description = productParts[2],
+                                Price = finalPrice,
                                 Quantity = amountBought
                             });
+                            break;
                         }
-                    }
-                }
-                Console.Clear();
-            }
-            DoneShopping.ShowReceipt(basket);
 
+                    }
+
+                }
+                DoneShopping.ShowReceipt(basket);
+
+            }
         }
     }
 }
+
