@@ -99,16 +99,12 @@ namespace kassasystem
                                 Description = productParts[2],
                                 Price = finalPrice,
                                 Quantity = amountBought
-                            });
-                            break;
+                            });                            
                         }
-
                     }
-
                 }
-                DoneShopping.ShowReceipt(basket);
-
             }
+            DoneShopping.ShowReceipt(basket);
         }
     }
 }
