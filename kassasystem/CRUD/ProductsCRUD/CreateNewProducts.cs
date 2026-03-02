@@ -4,7 +4,7 @@ using System.IO;
 
 namespace kassasystem
 {
-    internal class AddNewProducts
+    internal class CreateNewProducts
     {
         public void AddProduct()
         {
@@ -34,7 +34,7 @@ namespace kassasystem
             bool addingNewProducts = true;
             while (addingNewProducts)
             {
-                ShowProductList.ListOfProducts();
+                ReadProductList.ListOfProducts();
 
                 Console.Write("To add a new product. \nFirst type the products name: ");
                 var name = Console.ReadLine().Trim();

@@ -58,7 +58,7 @@ namespace kassasystem
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0m{options.Option2}");
                 Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}\u001b[0m{options.Option3}");
                 Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}\u001b[0m{options.Option4}");
-                Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}\u001b[0mExit");
+                Console.WriteLine($"{(option == 5 ? choiceIndicator : "   ")}\u001b[0mExit");
 
 
                 key = Console.ReadKey(true);
@@ -166,7 +166,7 @@ namespace kassasystem
 
                 Console.WriteLine($"{(option == 1 ? choiceIndicator : "   ")}\u001b[0m{options.Option1}");
                 Console.WriteLine($"{(option == 2 ? choiceIndicator : "   ")}\u001b[0m{options.Option2}");
-                Console.WriteLine($"{(option == 4 ? choiceIndicator : "   ")}\u001b[0mExit");
+                Console.WriteLine($"{(option == 3 ? choiceIndicator : "   ")}\u001b[0mExit");
 
                 key = Console.ReadKey(true);
 

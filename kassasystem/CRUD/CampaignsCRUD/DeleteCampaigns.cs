@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace kassasystem.Campaigns
 {
-    internal class RemoveCampaign
+    internal class DeleteCampaigns
     {
 
         public void DeleteCampaign()

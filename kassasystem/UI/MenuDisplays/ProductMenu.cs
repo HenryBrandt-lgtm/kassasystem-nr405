@@ -1,42 +1,40 @@
-﻿using kassasystem.Campaigns;
+﻿using kassasystem.BluePrints;
 using System;
 using System.Threading;
 
-namespace kassasystem.Menus
+namespace kassasystem.Products
 {
-    internal class CampaignMenu
+    internal static class ProductMenu
     {
-
-        public static void ListOfCampaignOptions()
+        public static void ListOfProductOptions()
         {
-            ShowCampaigns.ListOfCampaigns();
+            ReadProductList.ListOfProducts();
 
-            var option1 = "Add new campaign";
-            var option2 = "Remove campaign";
-            var option3 = "Uppdate campaign";
+            var option1 = "Add new product";
+            var option2 = "Remove product";
+            var option3 = "Update a product";
             var option4 = "Go back to main menu";
 
             KeyMenu optionOf4 = new KeyMenu(option1, option2, option3, option4);
-            ScrollMenu campaginMenu = new ScrollMenu();
+            ScrollMenu productMenu = new ScrollMenu();
 
-            var option = campaginMenu.ScrollMenuOptionOf4WithoutExit(optionOf4);
+            var option = productMenu.ScrollMenuOptionOf4WithoutExit(optionOf4);
 
             Console.CursorVisible = true;
 
             switch (option)
             {
                 case 1:
-                    AddNewCampaign addNewCampaign = new AddNewCampaign();
-                    addNewCampaign.AddCampaign();
+                    CreateNewProducts addProduct = new CreateNewProducts();
+                    addProduct.AddProduct();
                     break;
                 case 2:
-                    RemoveCampaign removeCampaign = new RemoveCampaign();
-                    removeCampaign.DeleteCampaign();
+                    DeleteProducts removeProduct = new DeleteProducts();
+                    removeProduct.DeleteProduct();
                     break;
-
                 case 3:
-                    UpdateCampaign updateCampaign = new UpdateCampaign();
-                    updateCampaign.ChangeCampaign();
+                    UpdateProducts changeProduct = new UpdateProducts();
+                    changeProduct.ChangeProduct();
                     break;
                 case 4:
                     Console.Clear();
@@ -54,5 +52,3 @@ namespace kassasystem.Menus
         }
     }
 }
-
-

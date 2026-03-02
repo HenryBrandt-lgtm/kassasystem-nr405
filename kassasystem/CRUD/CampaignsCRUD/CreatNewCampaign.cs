@@ -5,7 +5,7 @@ using System.IO;
 
 namespace kassasystem.Campaigns
 {
-    internal class AddNewCampaign
+    internal class CreatNewCampaign
     {
 
         public void AddCampaign()
@@ -58,6 +58,7 @@ namespace kassasystem.Campaigns
                     Console.Clear();
                     continue;
                 }
+
                 bool settingStartDate = true;
                 DateTime startDate = default;
                 while (settingStartDate)
@@ -75,6 +76,7 @@ namespace kassasystem.Campaigns
                         Console.WriteLine("Invalid input, please use yyyy-MM-dd");
                     
                 }
+
                 bool settingEndDate = true;
                 DateTime endDate = default;
                 while (settingEndDate)
@@ -95,7 +97,7 @@ namespace kassasystem.Campaigns
                 {
                     writer.WriteLine($"{campaignName};{productParts[0]};{discount};{startDate};{endDate}");
                 }
-                Console.WriteLine("\nCampaign added! Press enter to return to main menu...");
+                Console.WriteLine("\nCampaign created! Press enter to return to main menu...");
                 Console.ReadLine();
                 break;
             }

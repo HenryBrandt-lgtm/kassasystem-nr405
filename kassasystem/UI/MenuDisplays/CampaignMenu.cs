@@ -1,40 +1,42 @@
-﻿using kassasystem.BluePrints;
+﻿using kassasystem.Campaigns;
 using System;
 using System.Threading;
 
-namespace kassasystem.Products
+namespace kassasystem.Menus
 {
-    internal static class ProductMenu
+    internal class CampaignMenu
     {
-        public static void ListOfProductOptions()
-        {
-            ShowProductList.ListOfProducts();
 
-            var option1 = "Add new product";
-            var option2 = "Remove product";
-            var option3 = "Update a product";
+        public static void ListOfCampaignOptions()
+        {
+            ReadCampaigns.ListOfCampaigns();
+
+            var option1 = "Add new campaign";
+            var option2 = "Delete campaign";
+            var option3 = "Update campaign";
             var option4 = "Go back to main menu";
 
             KeyMenu optionOf4 = new KeyMenu(option1, option2, option3, option4);
-            ScrollMenu productMenu = new ScrollMenu();
+            ScrollMenu campaginMenu = new ScrollMenu();
 
-            var option = productMenu.ScrollMenuOptionOf4WithoutExit(optionOf4);
+            var option = campaginMenu.ScrollMenuOptionOf4WithoutExit(optionOf4);
 
             Console.CursorVisible = true;
 
             switch (option)
             {
                 case 1:
-                    AddNewProducts addProduct = new AddNewProducts();
-                    addProduct.AddProduct();
+                    CreatNewCampaign addNewCampaign = new CreatNewCampaign();
+                    addNewCampaign.AddCampaign();
                     break;
                 case 2:
-                    RemoveProducts removeProduct = new RemoveProducts();
-                    removeProduct.DeleteProduct();
+                    DeleteCampaigns removeCampaign = new DeleteCampaigns();
+                    removeCampaign.DeleteCampaign();
                     break;
+
                 case 3:
-                    UpdateProducts changeProduct = new UpdateProducts();
-                    changeProduct.ChangeProduct();
+                    UpdateCampaign updateCampaign = new UpdateCampaign();
+                    updateCampaign.ChangeCampaign();
                     break;
                 case 4:
                     Console.Clear();
@@ -52,3 +54,5 @@ namespace kassasystem.Products
         }
     }
 }
+
+

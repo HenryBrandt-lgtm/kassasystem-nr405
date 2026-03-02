@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace kassasystem.Products
 {
-    internal class RemoveProducts
+    internal class DeleteProducts
     {
         public void DeleteProduct()
         {

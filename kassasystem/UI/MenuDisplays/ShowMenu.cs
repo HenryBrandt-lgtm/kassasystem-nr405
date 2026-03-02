@@ -12,8 +12,8 @@ namespace kassasystem
         {
             
             string option1 = "Start New Transaction";
-            string option2 = "View and add/remove/update products";
-            string option3 = "View and add/remove campaigns";
+            string option2 = "View and create/remove/update products";
+            string option3 = "View and create/remove/update campaigns";
 
             KeyMenu optionsOf3 = new KeyMenu(option1, option2, option3);
             ScrollMenu mainMenu = new ScrollMenu();
@@ -25,7 +25,6 @@ namespace kassasystem
             switch (option)
             {
                 case 1:
-                    NewReceipt.LoadLastReceiptNumber();
                     var transaction = new Transaction();
                     transaction.NewTransaction();
                     break;
