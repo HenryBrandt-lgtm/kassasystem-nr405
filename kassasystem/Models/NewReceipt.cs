@@ -11,14 +11,14 @@ namespace kassasystem
         {
             int receiptNumber = LoadReceiptNumber.GetNextReceiptNumber();
             string date = DateTime.Now.ToString("yyyyMMdd");
-            string filePath = $"../../Receipts/RECEIPT_{date}.csv";
+            string filePath = $"../../Receipts/RECEIPT_{date}.txt";
 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 writer.WriteLine("------------------------------");
-                writer.WriteLine("Brandts frukt och grönt");
+                writer.WriteLine("Brandts fruits and veggies");
                 writer.WriteLine($"{date}");
-                writer.WriteLine($"Kvitto: Nr.{receiptNumber}");
+                writer.WriteLine($"Receipt: Nr.{receiptNumber}");
 
                 decimal grandTotal = 0;
 

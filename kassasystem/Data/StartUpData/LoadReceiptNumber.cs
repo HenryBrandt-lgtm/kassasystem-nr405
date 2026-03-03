@@ -18,7 +18,7 @@ namespace kassasystem.Data
                 return;
             }
 
-            string[] files = Directory.GetFiles(folderPath, "RECEIPT_*.csv");
+            string[] files = Directory.GetFiles(folderPath, "RECEIPT_*.txt");
             if (files.Length == 0)
             {
                 ReceiptNumber = 0;
@@ -32,9 +32,9 @@ namespace kassasystem.Data
             for (int i = receiptArray.Length - 1; i >= 0; i--)
             {
                 string line = receiptArray[i].Trim();
-                if (line.StartsWith("Kvitto: Nr."))
+                if (line.StartsWith("Receipt: Nr."))
                 {
-                    string numberPart = line.Replace("Kvitto: Nr.", "").Trim();
+                    string numberPart = line.Replace("Receipt: Nr.", "").Trim();
                     if (int.TryParse(numberPart, out int lastReceiptNumber))
                     {
                         ReceiptNumber = lastReceiptNumber;

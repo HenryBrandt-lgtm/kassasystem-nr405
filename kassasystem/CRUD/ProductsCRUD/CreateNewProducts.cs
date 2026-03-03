@@ -22,7 +22,7 @@ namespace kassasystem
                 ReadProductList.ListOfProducts();
 
                 Console.Write("To add a new product. \nFirst type the products name: ");
-                var name = Console.ReadLine().Trim();
+                var name = Console.ReadLine();
                 if (name == null)
                     name = "Product";
 
@@ -52,7 +52,8 @@ namespace kassasystem
                 {
                     ProductName = name,
                     ProductType = type,
-                    ProductPrice = price
+                    ProductPrice = price,
+                    IsAvailable = true
                 };
 
 
