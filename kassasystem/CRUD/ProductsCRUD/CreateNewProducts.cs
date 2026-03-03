@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kassasystem.Models;
+using System;
 using System.Globalization;
 using System.IO;
 
@@ -11,25 +12,9 @@ namespace kassasystem
 
             Console.Clear();
             string filePath = "../../Productsfiles/ProductList.csv";
-            int newID = 300;
             CreateProductList.CheckProductList();
 
-            var lines = File.ReadAllLines(filePath);
-
-            if (lines.Length != 0)
-            {
-                int maxID = 300;
-
-                foreach (var line in lines)
-                {
-                    int id = int.Parse(line.Split(';')[0]);
-
-                    if (id > maxID)
-                        maxID = id;
-                }
-
-                newID = maxID + 1;
-            }
+            int newID = LoadNewProductID.GetNextPorductID();
 
             bool addingNewProducts = true;
             while (addingNewProducts)

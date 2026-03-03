@@ -10,11 +10,5 @@ namespace kassasystem
         public decimal ProductPrice { get; set; }
         public bool IsAvailable { get; set; }
 
-        private static int NextID = 300;
-        public Product()
-        {
-            ProductID = NextID++;
-        }
-        
     }
 }
