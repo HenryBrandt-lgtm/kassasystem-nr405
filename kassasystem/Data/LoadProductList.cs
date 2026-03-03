@@ -4,7 +4,7 @@ using System.IO.Ports;
 
 namespace kassasystem.Data
 {
-    internal class ProductList
+    internal class LoadProductList
     {
         public static List<Product> ProductListOutput()
         {

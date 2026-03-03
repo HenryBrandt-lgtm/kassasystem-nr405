@@ -32,37 +32,10 @@ namespace kassasystem
                 string productID = result.Value.productID;
                 decimal amountBought = result.Value.amountBought;
 
-                if (File.Exists(productsFilePath))
-                {
+                SetDiscountedPrice addingToBasket = new SetDiscountedPrice();
 
-                    var campaignList = CampaignList.CampaignListOutput();
-
-                    string[] products = File.ReadAllLines(productsFilePath);
-                    foreach (string product in products)
-                    {
-                        var productParts = product.Split(';');
-
-                        if (productParts[0] == productID)
-                        {
-                            decimal originalPrice = decimal.Parse(productParts[3]);
-                            decimal finalPrice = originalPrice;
-
-                            foreach (var campaign in campaignList.Where(campaign => campaign.ProductId.ToString() == productID
-                            && campaign.IsActive()))
-                            {
-                                finalPrice *= (1 - campaign.DiscountPercent / 100);
-                            }
-
-                            basket.Add(new ShoppingBasket
-                            {
-                                Name = productParts[1],
-                                Description = productParts[2],
-                                Price = finalPrice,
-                                Quantity = amountBought
-                            });
-                        }
-                    }
-                }
+                addingToBasket.AddProductToBasket(basket, productID, amountBought);
+               
             }
             NewReceipt saveReceipt = new NewReceipt();
             saveReceipt.CreateReceipt(basket);

@@ -15,14 +15,14 @@ namespace kassasystem.Campaigns
             string filePath = "../../Campaginfiles/CampaignList.csv";
             if (!File.Exists(filePath))
             {
-                CreateCampaignList.CheckCampaignList();
+                CreateCampaignPath.CheckCampaignList();
             }
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n~~~~Brandts frukt och grönt!~~~~\n");
             Console.ResetColor();
 
-           var listOfCampaigns = CampaignList.CampaignListOutput();
+           var listOfCampaigns = LoadCampaignList.CampaignListOutput();
 
             foreach (var campaign in listOfCampaigns)
             {

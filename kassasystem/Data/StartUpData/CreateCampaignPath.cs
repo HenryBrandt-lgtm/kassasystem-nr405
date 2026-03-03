@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace kassasystem.BluePrints
 {
-    internal class CreateCampaignList
+    internal class CreateCampaignPath
     {
 
         private static string foldPath = "../../Campaginfiles";

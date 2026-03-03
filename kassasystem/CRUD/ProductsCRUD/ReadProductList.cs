@@ -18,7 +18,7 @@ namespace kassasystem
                 Console.WriteLine("\n~~~~Brandts frukt och grönt!~~~~\n");
                 Console.ResetColor();
 
-                var productList = ProductList.ProductListOutput();
+                var productList = LoadProductList.ProductListOutput();
 
                 foreach (var product in productList)
                 {

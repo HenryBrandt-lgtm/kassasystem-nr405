@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace kassasystem.Data
 {
-    internal class CampaignList
+    internal class LoadCampaignList
     {
         public static List<Campaign> CampaignListOutput()
         {

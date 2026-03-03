@@ -8,7 +8,7 @@ namespace kassasystem
         static void Main(string[] args)
         {
             CreateProductList.CheckProductList();
-            CreateCampaignList.CheckCampaignList();
+            CreateCampaignPath.CheckCampaignList();
             LoadReceiptNumber.LoadLastReceiptNumber();
             ShowMenu.ShowMainMenu();
         }

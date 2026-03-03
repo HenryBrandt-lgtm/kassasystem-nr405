@@ -43,13 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\CampaignList.cs" />
+    <Compile Include="Data\LoadCampaignList.cs" />
     <Compile Include="Data\StartUpData\LoadReceiptNumber.cs" />
-    <Compile Include="Data\ProductList.cs" />
+    <Compile Include="Data\LoadProductList.cs" />
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Shopping\CostumersChoice.cs" />
+    <Compile Include="Shopping\SetDiscountedPrice.cs" />
     <Compile Include="UI\ShoppingDisplay.cs" />
-    <Compile Include="Data\StartUpData\CreateCampaignList.cs" />
+    <Compile Include="Data\StartUpData\CreateCampaignPath.cs" />
     <Compile Include="Models\IProduct.cs" />
     <Compile Include="Models\KeyMenu.cs" />
     <Compile Include="CRUD\CampaignsCRUD\CreatNewCampaign.cs" />

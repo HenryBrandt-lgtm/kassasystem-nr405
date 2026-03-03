@@ -15,7 +15,7 @@ namespace kassasystem.Campaigns
             string campaginFilePath = "../../Campaginfiles/CampaignList.csv";
             while (true)
             {
-                CreateCampaignList.CheckCampaignList();
+                CreateCampaignPath.CheckCampaignList();
 
                 string[] products = File.ReadAllLines(productFilePath);
 
