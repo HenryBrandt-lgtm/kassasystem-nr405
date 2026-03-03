@@ -47,8 +47,9 @@
     <Compile Include="Data\StartUpData\LoadReceiptNumber.cs" />
     <Compile Include="Data\LoadProductList.cs" />
     <Compile Include="Models\Campaign.cs" />
+    <Compile Include="Shopping\CalculateFinalPrice.cs" />
     <Compile Include="Shopping\CostumersChoice.cs" />
-    <Compile Include="Shopping\SetDiscountedPrice.cs" />
+    <Compile Include="Shopping\BasketManager.cs" />
     <Compile Include="UI\ShoppingDisplay.cs" />
     <Compile Include="Data\StartUpData\CreateCampaignPath.cs" />
     <Compile Include="Models\IProduct.cs" />

@@ -1,13 +1,14 @@
 ﻿using kassasystem.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace kassasystem.Shopping
 {
-    internal class SetDiscountedPrice
+    internal class BasketManager
     {
-        public List<ShoppingBasket> AddProductToBasket(List<ShoppingBasket> basket, string productID, decimal amountBought)
+        public void AddProductToBasket(List<ShoppingBasket> basket, string productID, decimal amountBought)
         {
             string productsFilePath = "../../Productsfiles/ProductList.csv";
 
@@ -25,14 +26,9 @@ namespace kassasystem.Shopping
                     if (productParts[0] == productID)
                     {
                         decimal originalPrice = decimal.Parse(productParts[3]);
-                        decimal finalPrice = originalPrice;
 
-                        foreach (var campaign in campaignList.Where(campaign => campaign.ProductId.ToString() == productID
-                        && campaign.IsActive()))
-                        {
-                            finalPrice *= (1 - campaign.DiscountPercent / 100);
-                        }
-
+                        var finalPrice = CalculateFinalPrice.FinalPriceCalculator(productID, originalPrice);
+                        
                         basket.Add(new ShoppingBasket
                         {
                             Name = productParts[1],
@@ -40,11 +36,12 @@ namespace kassasystem.Shopping
                             Price = finalPrice,
                             Quantity = amountBought
                         });
+                        return;
                     }
                 }
-                return basket;
             }
-            return null;
+            throw new Exception("Couldnt find the product");
+
         }
     }
 }
