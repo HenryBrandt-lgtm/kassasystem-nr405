@@ -36,7 +36,7 @@ namespace kassasystem.Shopping
                     Console.ReadKey(); continue;
                 }
                 var productList = LoadProductList.ProductListOutput();
-                bool productExist = productList.Any(p => p.ProductID == productID);
+                bool productExist = productList.Any(p => p.ProductID == productID && p.IsAvailable);
 
                 if (!productExist)
                 {

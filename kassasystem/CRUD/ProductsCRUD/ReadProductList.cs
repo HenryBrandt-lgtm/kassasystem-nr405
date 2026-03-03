@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 namespace kassasystem
 {
     internal class ReadProductList
@@ -20,7 +21,15 @@ namespace kassasystem
 
                 var productList = LoadProductList.ProductListOutput();
 
-                foreach (var product in productList)
+                var availableProducts = productList.Where(p => p.IsAvailable).ToList();
+
+                if (availableProducts.Count == 0)
+                {
+                    Console.WriteLine("There are no available products");
+                    return;
+                }
+
+                foreach (var product in availableProducts)
                 {
                     Console.WriteLine($"{"",3}{product.ProductID} {product.ProductName} {product.ProductType} {product.ProductPrice}");
                 }

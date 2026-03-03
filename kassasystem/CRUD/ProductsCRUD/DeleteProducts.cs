@@ -40,13 +40,12 @@ namespace kassasystem.Products
                 }
                 List<string> productList = lines.ToList();
 
-                productList.RemoveAt(choice);
-
+                var parts = productList[choice].Split(';');
+                parts[4] = "false"; 
+                productList[choice] = string.Join(";", parts);
                 File.WriteAllLines(filePath, productList);
 
-                //sätta produkterna som inactive istället för raderade?
-
-                Console.WriteLine("\nProduct deleted! Press enter to return to main menu...");
+                Console.WriteLine("\nProduct Inactive! Press enter to return to main menu...");
                 Console.ReadLine();
                 break;
             }

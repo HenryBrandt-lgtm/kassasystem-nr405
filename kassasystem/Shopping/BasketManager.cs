@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace kassasystem.Shopping
 {
@@ -28,7 +27,7 @@ namespace kassasystem.Shopping
                         decimal originalPrice = decimal.Parse(productParts[3]);
 
                         var finalPrice = CalculateFinalPrice.FinalPriceCalculator(productID, originalPrice);
-                        
+
                         basket.Add(new ShoppingBasket
                         {
                             Name = productParts[1],

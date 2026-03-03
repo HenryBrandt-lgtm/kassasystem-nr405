@@ -9,6 +9,5 @@ namespace kassasystem
         public string ProductType { get; set; }
         public decimal ProductPrice { get; set; }
         public bool IsAvailable { get; set; }
-
     }
 }
