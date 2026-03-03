@@ -52,7 +52,7 @@
     <Compile Include="Shopping\BasketManager.cs" />
     <Compile Include="UI\ShoppingDisplay.cs" />
     <Compile Include="Data\StartUpData\CreateCampaignPath.cs" />
-    <Compile Include="Models\IProduct.cs" />
+    <Compile Include="Models\IAvailableProduct.cs" />
     <Compile Include="Models\KeyMenu.cs" />
     <Compile Include="CRUD\CampaignsCRUD\CreatNewCampaign.cs" />
     <Compile Include="CRUD\CampaignsCRUD\DeleteCampaigns.cs" />

@@ -26,7 +26,7 @@ namespace kassasystem
                     shopping = false;
                     continue;
                 }
-                string productID = result.Value.productID;
+                int productID = result.Value.productID;
                 decimal amountBought = result.Value.amountBought;
 
                 addingToBasket.AddProductToBasket(basket, productID, amountBought);

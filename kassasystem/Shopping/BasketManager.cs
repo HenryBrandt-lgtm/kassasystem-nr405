@@ -8,7 +8,7 @@ namespace kassasystem.Shopping
 {
     internal class BasketManager
     {
-        public void AddProductToBasket(List<ShoppingBasket> basket, string productID, decimal amountBought)
+        public void AddProductToBasket(List<ShoppingBasket> basket, int productID, decimal amountBought)
         {
             string productsFilePath = "../../Productsfiles/ProductList.csv";
 
@@ -23,7 +23,7 @@ namespace kassasystem.Shopping
                 {
                     var productParts = product.Split(';');
 
-                    if (productParts[0] == productID)
+                    if (productParts[0] == productID.ToString())
                     {
                         decimal originalPrice = decimal.Parse(productParts[3]);
 
