@@ -69,7 +69,7 @@ namespace kassasystem.Products
                     case 3:
                         Console.Clear();
                         Console.Write($"{productParts[1]} current price is {productParts[3]}kr. Please type the new price: ");
-                        if (!decimal.TryParse(Console.ReadLine(), 
+                        if (!decimal.TryParse(Console.ReadLine(),
                             out decimal newProductPrice) || newProductPrice <= 0)
                         {
                             Console.WriteLine("Invalid price!");
@@ -83,7 +83,7 @@ namespace kassasystem.Products
                     case 4:
                         Console.Clear();
                         var availabillity = "";
-                        if (productParts[4] == "true") 
+                        if (productParts[4] == "true")
                         {
                             Console.WriteLine("Please go to Delete products to inactivate the product.");
                             Console.ReadKey();
@@ -132,7 +132,7 @@ namespace kassasystem.Products
                 break;
             }
             Console.Clear();
-            ShowMenu.ShowMainMenu();
+            MainMenu.ShowMainMenu();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using kassasystem.BluePrints;
-using System;
+﻿using System;
 using System.Threading;
 
 namespace kassasystem.Products
@@ -45,7 +44,7 @@ namespace kassasystem.Products
                         Thread.Sleep(750);
                     }
                     Console.Clear();
-                    ShowMenu.ShowMainMenu();
+                    MainMenu.ShowMainMenu();
                     break;
 
             }

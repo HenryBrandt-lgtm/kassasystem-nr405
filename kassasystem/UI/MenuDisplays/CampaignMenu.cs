@@ -47,7 +47,7 @@ namespace kassasystem.Menus
                         Thread.Sleep(750);
                     }
                     Console.Clear();
-                    ShowMenu.ShowMainMenu();
+                    MainMenu.ShowMainMenu();
                     break;
 
             }

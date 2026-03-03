@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace kassasystem
+﻿namespace kassasystem
 {
     internal class ShoppingBasket
     {
@@ -16,6 +14,6 @@ namespace kassasystem
                 return Price * Quantity;
             }
         }
-       
+
     }
 }

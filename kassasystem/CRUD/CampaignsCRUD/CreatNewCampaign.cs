@@ -74,7 +74,7 @@ namespace kassasystem.Campaigns
                     }
                     else
                         Console.WriteLine("Invalid input, please use yyyy-MM-dd");
-                    
+
                 }
 
                 bool settingEndDate = true;
@@ -88,7 +88,7 @@ namespace kassasystem.Campaigns
                         if (endDate < startDate)
                             Console.WriteLine("The last date of the campaign cant be before the start.");
                         else
-                            settingEndDate = false;                       
+                            settingEndDate = false;
                     }
                     else
                         Console.WriteLine("Invalid input, please use yyyy-MM-dd");
@@ -102,7 +102,7 @@ namespace kassasystem.Campaigns
                 break;
             }
             Console.Clear();
-            ShowMenu.ShowMainMenu();
+            MainMenu.ShowMainMenu();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace kassasystem
             CreateProductList.CheckProductList();
             CreateCampaignPath.CheckCampaignList();
             LoadReceiptNumber.LoadLastReceiptNumber();
-            ShowMenu.ShowMainMenu();
+            MainMenu.ShowMainMenu();
         }
     }
 }

@@ -1,16 +1,15 @@
-﻿using kassasystem.Campaigns;
-using kassasystem.Menus;
+﻿using kassasystem.Menus;
 using kassasystem.Products;
 using System;
 using System.Threading;
 
 namespace kassasystem
 {
-    internal class ShowMenu
+    internal class MainMenu
     {
         public static void ShowMainMenu()
         {
-            
+
             string option1 = "Start New Transaction";
             string option2 = "View and create/remove/update products";
             string option3 = "View and create/remove/update campaigns";
@@ -28,7 +27,7 @@ namespace kassasystem
                     var transaction = new Transaction();
                     transaction.NewTransaction();
                     break;
-                case 2:                   
+                case 2:
                     ProductMenu.ListOfProductOptions();
                     break;
                 case 3:

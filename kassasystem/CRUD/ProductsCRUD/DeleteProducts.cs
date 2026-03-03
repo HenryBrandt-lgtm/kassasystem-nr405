@@ -41,7 +41,7 @@ namespace kassasystem.Products
                 List<string> productList = lines.ToList();
 
                 var parts = productList[choice].Split(';');
-                parts[4] = "false"; 
+                parts[4] = "false";
                 productList[choice] = string.Join(";", parts);
                 File.WriteAllLines(filePath, productList);
 
@@ -50,7 +50,7 @@ namespace kassasystem.Products
                 break;
             }
             Console.Clear();
-            ShowMenu.ShowMainMenu();
+            MainMenu.ShowMainMenu();
         }
     }
 }

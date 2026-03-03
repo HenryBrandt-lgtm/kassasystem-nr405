@@ -1,33 +1,32 @@
-﻿    using System;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-    namespace kassasystem
+namespace kassasystem
+{
+    internal class DoneShopping
+
     {
-        internal class DoneShopping
-
+        public static void ShowReceipt(List<ShoppingBasket> basket)
         {
-            public static void ShowReceipt(List<ShoppingBasket> basket)
+            decimal grandTotal = 0;
+            Console.Clear();
+            Console.WriteLine("===== KVITTO =====");
+
+            foreach (var item in basket)
             {
-                NewReceipt receipt = new NewReceipt();
-                decimal grandTotal = 0;
-                Console.Clear();
-                Console.WriteLine("===== KVITTO =====");
-
-                foreach (var item in basket)
-                {
-                    grandTotal += item.Total;
-                    Console.WriteLine($"{item.Quantity} {item.Name}  {item.Price}  {item.Total}");
-                }
-                decimal moms = grandTotal * 0.12m;
-                decimal roundedMoms = Math.Round(moms, 2);
-                Console.WriteLine("------------------");
-                Console.WriteLine($"TOTAL: {grandTotal}");
-                Console.WriteLine($"\nMoms: 12%\t{roundedMoms}");
-                Console.WriteLine("Press anykey to return to main menu.");
-                Console.ReadKey();
-                Console.Clear();
-
-                ShowMenu.ShowMainMenu();
+                grandTotal += item.Total;
+                Console.WriteLine($"{item.Quantity} {item.Name}  {item.Price}  {item.Total}");
             }
+            decimal moms = grandTotal * 0.12m;
+            decimal roundedMoms = Math.Round(moms, 2);
+            Console.WriteLine("------------------");
+            Console.WriteLine($"TOTAL: {grandTotal}");
+            Console.WriteLine($"\nMoms: 12%\t{roundedMoms}");
+            Console.WriteLine("Press anykey to return to main menu.");
+            Console.ReadKey();
+            Console.Clear();
+
+            MainMenu.ShowMainMenu();
         }
     }
+}

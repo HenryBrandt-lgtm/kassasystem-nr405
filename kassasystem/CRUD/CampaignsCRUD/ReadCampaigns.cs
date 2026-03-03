@@ -1,7 +1,6 @@
 ﻿using kassasystem.BluePrints;
 using kassasystem.Data;
 using System;
-using System.Collections.Generic;
 using System.IO;
 namespace kassasystem.Campaigns
 {
@@ -22,7 +21,7 @@ namespace kassasystem.Campaigns
             Console.WriteLine("\n~~~~Brandts frukt och grönt!~~~~\n");
             Console.ResetColor();
 
-           var listOfCampaigns = LoadCampaignList.CampaignListOutput();
+            var listOfCampaigns = LoadCampaignList.CampaignListOutput();
 
             foreach (var campaign in listOfCampaigns)
             {

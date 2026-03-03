@@ -49,7 +49,7 @@ namespace kassasystem.Campaigns
                 break;
             }
             Console.Clear();
-            ShowMenu.ShowMainMenu();
+            MainMenu.ShowMainMenu();
         }
     }
 }

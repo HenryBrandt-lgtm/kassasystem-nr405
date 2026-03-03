@@ -1,9 +1,4 @@
-﻿using System;
-using kassasystem.Products;
-
-using System.Threading;
-
-namespace kassasystem
+﻿namespace kassasystem
 {
     internal class KeyMenu
     {

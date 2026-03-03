@@ -69,7 +69,7 @@
     <Compile Include="UI\DoneShopping.cs" />
     <Compile Include="Models\NewReceipt.cs" />
     <Compile Include="Models\ShoppingBasket.cs" />
-    <Compile Include="UI\MenuDisplays\ShowMenu.cs" />
+    <Compile Include="UI\MenuDisplays\MainMenu.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -68,7 +68,7 @@ namespace kassasystem
 
             }
             Console.Clear();
-            ShowMenu.ShowMainMenu();
+            MainMenu.ShowMainMenu();
 
         }
     }

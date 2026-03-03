@@ -2,12 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace kassasystem
 {
     internal class NewReceipt
-    {               
+    {
         public void CreateReceipt(List<ShoppingBasket> basket)
         {
             int receiptNumber = LoadReceiptNumber.GetNextReceiptNumber();
@@ -34,6 +33,6 @@ namespace kassasystem
                 writer.WriteLine($"Moms: 12%  {moms}");
                 writer.WriteLine("------------------------------");
             }
-        }        
+        }
     }
 }
