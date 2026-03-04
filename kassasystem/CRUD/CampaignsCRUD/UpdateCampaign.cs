@@ -69,8 +69,8 @@ namespace kassasystem.Campaigns
                         Console.Write($"{campaignParts[0]} current discount is {campaignParts[2]}. Please type the new discount: ");
                         if (!decimal.TryParse(Console.ReadLine(), out decimal discount) || discount < 0 || discount > 50)
                         {
-                            Console.WriteLine("Unvallid input. Only numbers are needed and the discount cant be lowe than 0% " +
-                                "or higher than 50%. Press space to try again.");
+                            Console.WriteLine("Unvallid input. \nOnly numbers are needed and the discount cant be lower than 0% " +
+                                "or higher than 50%. \nPress space to try again.");
                         }
                         campaignParts[2] = discount.ToString();
                         break;

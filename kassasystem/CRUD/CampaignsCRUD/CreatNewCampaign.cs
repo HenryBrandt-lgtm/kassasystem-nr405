@@ -52,8 +52,8 @@ namespace kassasystem.Campaigns
                 Console.Write("Enter discount percent: ");
                 if (!decimal.TryParse(Console.ReadLine(), out decimal discount) || discount < 0 || discount > 50)
                 {
-                    Console.WriteLine("Unvallid input. Only numbers are needed and the discount cant be lowe than 0% " +
-                        "or higher than 50%. Press space to try again.");
+                    Console.WriteLine("Unvallid input. \nOnly numbers are needed and the discount cant be lowe than 0% " +
+                        "or higher than 50%. \nPress space to try again.");
                     Console.ReadLine();
                     Console.Clear();
                     continue;
